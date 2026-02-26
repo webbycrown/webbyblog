@@ -1,0 +1,307 @@
+{
+  "categories": [
+    {
+      "name": "Technology",
+      "slug": "technology",
+      "description": "Latest technology trends, innovations, and tech news"
+    },
+    {
+      "name": "Web Development",
+      "slug": "web-development",
+      "description": "Articles about web development, frameworks, and best practices"
+    },
+    {
+      "name": "Design",
+      "slug": "design",
+      "description": "UI/UX design tips, trends, and inspiration"
+    },
+    {
+      "name": "Business",
+      "slug": "business",
+      "description": "Business insights, entrepreneurship, and industry news"
+    },
+    {
+      "name": "Lifestyle",
+      "slug": "lifestyle",
+      "description": "Lifestyle tips, health, and wellness content"
+    }
+  ],
+  "tags": [
+    {
+      "name": "JavaScript",
+      "slug": "javascript",
+      "description": "JavaScript programming and development"
+    },
+    {
+      "name": "React",
+      "slug": "react",
+      "description": "React framework and ecosystem"
+    },
+    {
+      "name": "Node.js",
+      "slug": "nodejs",
+      "description": "Node.js backend development"
+    },
+    {
+      "name": "CSS",
+      "slug": "css",
+      "description": "CSS styling and design"
+    },
+    {
+      "name": "HTML",
+      "slug": "html",
+      "description": "HTML markup and structure"
+    },
+    {
+      "name": "Tutorial",
+      "slug": "tutorial",
+      "description": "Step-by-step tutorials and guides"
+    },
+    {
+      "name": "Tips",
+      "slug": "tips",
+      "description": "Useful tips and tricks"
+    },
+    {
+      "name": "Best Practices",
+      "slug": "best-practices",
+        "description": "Industry best practices and standards"
+    },
+    {
+      "name": "Beginner",
+      "slug": "beginner",
+      "description": "Content for beginners"
+    },
+    {
+      "name": "Advanced",
+      "slug": "advanced",
+      "description": "Advanced topics and techniques"
+    }
+  ],
+  "posts": [
+    {
+      "title": "Getting Started with Strapi CMS",
+      "excerpt": "Learn how to set up and use Strapi CMS for your next project. This comprehensive guide covers installation, content types, and API configuration.",
+      "content": "Strapi is a powerful headless CMS that allows you to build powerful APIs quickly. In this article, we'll explore the basics of getting started with Strapi.First, let's install Strapi using npm or yarn. Once installed, you can create a new project and start building your content types.Strapi provides a user-friendly admin panel where you can manage your content, configure API endpoints, and set up permissions.",
+      "meta_title": "Getting Started with Strapi CMS - Complete Guide",
+      "meta_description": "Learn how to set up and use Strapi CMS for your next project. Comprehensive guide covering installation, content types, and API configuration.",
+      "meta_keywords": "Strapi, CMS, Headless CMS, API, Content Management",
+      "category": "Technology",
+      "slug": "getting-started-with-strapi-cms",
+      "tags": ["JavaScript", "Tutorial", "Beginner"],
+      "publishedAt": "2024-01-15T10:00:00.000Z",
+      "blocks": [
+        {
+          "__component": "plugin::webbyblog.text-block",
+          "content": "Strapi is a powerful headless CMS that allows you to build powerful APIs quickly. In this article, we'll explore the basics of getting started with Strapi.First, let's install Strapi using npm or yarn. Once installed, you can create a new project and start building your content types."
+        },
+        {
+          "__component": "plugin::webbyblog.image-block",
+          "image": null,
+          "caption": "Strapi Admin Panel Interface",
+          "alt_text": "Strapi CMS admin panel dashboard"
+        },
+        {
+          "__component": "plugin::webbyblog.text-block",
+          "content": "Strapi provides a user-friendly admin panel where you can manage your content, configure API endpoints, and set up permissions.With Strapi, you can quickly create content types, define relationships, and build a complete backend API without writing a single line of backend code."
+        }
+      ]
+    },
+    {
+      "title": "10 Essential React Hooks Every Developer Should Know",
+      "excerpt": "Master the most important React hooks that will make your development workflow more efficient and your code cleaner.",
+      "content": "React Hooks revolutionized the way we write React components. In this article, we'll explore the 10 most essential hooks that every React developer should master.From useState and useEffect to custom hooks, we'll cover practical examples and use cases for each hook.Understanding these hooks will help you write more maintainable and efficient React applications.",
+      "meta_title": "10 Essential React Hooks - Complete Guide",
+      "meta_description": "Master the most important React hooks that will make your development workflow more efficient and your code cleaner.",
+      "meta_keywords": "React, Hooks, JavaScript, Frontend Development",
+      "category": "Web Development",
+      "slug": "10-essential-react-hooks-every-developer-should-know",
+      "tags": ["React", "JavaScript", "Tips", "Best Practices"],
+      "publishedAt": "2024-01-20T10:00:00.000Z",
+      "blocks": [
+        {
+          "__component": "plugin::webbyblog.text-block",
+          "content": "React Hooks revolutionized the way we write React components. In this article, we'll explore the 10 most essential hooks that every React developer should master."
+        },
+        {
+          "__component": "plugin::webbyblog.image-block",
+          "image": null,
+          "caption": "React Hooks Overview",
+          "alt_text": "React hooks diagram showing useState, useEffect, and other hooks"
+        },
+        {
+          "__component": "plugin::webbyblog.text-block",
+          "content": "From useState and useEffect to custom hooks, we'll cover practical examples and use cases for each hook.Understanding these hooks will help you write more maintainable and efficient React applications."
+        }
+      ]
+    },
+    {
+      "title": "Modern CSS Techniques for 2024",
+      "excerpt": "Discover the latest CSS features and techniques that will help you build beautiful, responsive websites with less code.",
+      "content": "CSS has evolved significantly over the years. Modern CSS features like Grid, Flexbox, and CSS Variables have changed how we approach web design.In this article, we'll explore cutting-edge CSS techniques including container queries, aspect ratio, and the new color functions.These modern techniques will help you write more maintainable CSS and create better user experiences.",
+      "meta_title": "Modern CSS Techniques for 2024 - Web Design Guide",
+      "meta_description": "Discover the latest CSS features and techniques that will help you build beautiful, responsive websites with less code.",
+      "meta_keywords": "CSS, Web Design, Frontend, Styling",
+      "category": "Design",
+      "slug": "modern-css-techniques-for-2024",
+      "tags": ["CSS", "HTML", "Tips", "Best Practices"],
+      "publishedAt": "2024-01-25T10:00:00.000Z",
+      "blocks": [
+        {
+          "__component": "plugin::webbyblog.text-block",
+          "content": "CSS has evolved significantly over the years. Modern CSS features like Grid, Flexbox, and CSS Variables have changed how we approach web design."
+        },
+        {
+          "__component": "plugin::webbyblog.image-block",
+          "image": null,
+          "caption": "CSS Grid Layout Example",
+          "alt_text": "Modern CSS Grid layout demonstration"
+        },
+        {
+          "__component": "plugin::webbyblog.text-block",
+          "content": "In this article, we'll explore cutting-edge CSS techniques including container queries, aspect ratio, and the new color functions.These modern techniques will help you write more maintainable CSS and create better user experiences."
+        }
+      ]
+    },
+    {
+      "title": "Building RESTful APIs with Node.js and Express",
+      "excerpt": "Learn how to build robust RESTful APIs using Node.js and Express. This guide covers routing, middleware, error handling, and best practices.",
+      "content": "Node.js and Express make it easy to build powerful RESTful APIs. In this comprehensive guide, we'll walk through building a complete API from scratch.We'll cover essential topics like routing, middleware, authentication, error handling, and API documentation.By the end of this tutorial, you'll have a solid understanding of how to build production-ready APIs.",
+      "meta_title": "Building RESTful APIs with Node.js and Express",
+      "meta_description": "Learn how to build robust RESTful APIs using Node.js and Express. Guide covers routing, middleware, error handling, and best practices.",
+      "meta_keywords": "Node.js, Express, API, Backend Development, REST",
+      "category": "Web Development",
+      "slug": "building-restful-apis-with-nodejs-and-express",
+      "tags": ["Node.js", "Tutorial", "Best Practices", "Advanced"],
+      "publishedAt": "2024-02-01T10:00:00.000Z",
+      "blocks": [
+        {
+          "__component": "plugin::webbyblog.text-block",
+          "content": "Node.js and Express make it easy to build powerful RESTful APIs. In this comprehensive guide, we'll walk through building a complete API from scratch."
+        },
+        {
+          "__component": "plugin::webbyblog.image-block",
+          "image": null,
+          "caption": "Node.js and Express Overview",
+          "alt_text": "Node.js and Express diagram showing routing, middleware, and error handling"
+        },
+        {
+          "__component": "plugin::webbyblog.text-block",
+          "content": "We'll cover essential topics like routing, middleware, authentication, error handling, and API documentation.By the end of this tutorial, you'll have a solid understanding of how to build production-ready APIs."
+        }
+      ]
+    },
+    {
+      "title": "UI/UX Design Principles for Modern Web Apps",
+      "excerpt": "Explore the fundamental UI/UX design principles that will help you create intuitive and engaging user experiences.",
+      "content": "Great design is more than just aesthetics. It's about creating experiences that are intuitive, accessible, and enjoyable for users.In this article, we'll explore key UI/UX principles including visual hierarchy, consistency, feedback, and user-centered design.We'll also discuss how to apply these principles in your web applications to improve user satisfaction and engagement.",
+      "meta_title": "UI/UX Design Principles for Modern Web Apps",
+      "meta_description": "Explore the fundamental UI/UX design principles that will help you create intuitive and engaging user experiences.",
+      "meta_keywords": "UI, UX, Design, User Experience, Web Design",
+      "category": "Design",
+      "slug": "uiux-design-principles-for-modern-web-apps",
+      "tags": ["HTML", "CSS", "Tips", "Best Practices"],
+      "publishedAt": "2024-02-05T10:00:00.000Z",
+      "blocks": [
+        {
+          "__component": "plugin::webbyblog.text-block",
+          "content": "Great design is more than just aesthetics. It's about creating experiences that are intuitive, accessible, and enjoyable for users."
+        },
+        {
+          "__component": "plugin::webbyblog.image-block",
+          "image": null,
+          "caption": "UI/UX Design Principles Overview",
+          "alt_text": "UI/UX design principles diagram showing visual hierarchy, consistency, feedback, and user-centered design"
+        },
+        {
+          "__component": "plugin::webbyblog.text-block",
+          "content": "In this article, we'll explore key UI/UX principles including visual hierarchy, consistency, feedback, and user-centered design.We'll also discuss how to apply these principles in your web applications to improve user satisfaction and engagement."
+        }
+      ]
+    },
+    {
+      "title": "JavaScript ES6+ Features You Should Know",
+      "excerpt": "A comprehensive guide to modern JavaScript features including arrow functions, destructuring, async/await, and more.",
+      "content": "JavaScript has evolved significantly with ES6 and beyond. These new features make JavaScript more powerful and expressive.We'll cover essential features like arrow functions, template literals, destructuring, spread operator, promises, and async/await.Understanding these features will help you write more modern and efficient JavaScript code.",
+      "meta_title": "JavaScript ES6+ Features - Complete Guide",
+      "meta_description": "A comprehensive guide to modern JavaScript features including arrow functions, destructuring, async/await, and more.",
+      "meta_keywords": "JavaScript, ES6, ES2015, Programming, Web Development",
+      "category": "Web Development",
+      "slug": "javascript-es6-features-you-should-know",
+      "tags": ["JavaScript", "Tutorial", "Beginner"],
+      "publishedAt": "2024-02-10T10:00:00.000Z",
+      "blocks": [
+        {
+          "__component": "plugin::webbyblog.text-block",
+          "content": "JavaScript has evolved significantly with ES6 and beyond. These new features make JavaScript more powerful and expressive."
+        },
+        {
+          "__component": "plugin::webbyblog.image-block",
+          "image": null,
+          "caption": "JavaScript ES6+ Features Overview",
+          "alt_text": "JavaScript ES6+ features diagram showing arrow functions, template literals, destructuring, spread operator, promises, and async/await"
+        },
+        {
+          "__component": "plugin::webbyblog.text-block",
+          "content": "We'll cover essential features like arrow functions, template literals, destructuring, spread operator, promises, and async/await.Understanding these features will help you write more modern and efficient JavaScript code."
+        }
+      ]
+    },
+    {
+      "title": "Starting Your Own Tech Business: A Beginner's Guide",
+      "excerpt": "Essential tips and strategies for aspiring entrepreneurs looking to start their own technology business.",
+      "content": "Starting a tech business can be both exciting and challenging. This guide will walk you through the essential steps to get started.We'll cover topics like validating your idea, building an MVP, finding customers, and scaling your business.Whether you're a developer with a great idea or an entrepreneur looking to enter the tech space, this guide has something for you.",
+      "meta_title": "Starting Your Own Tech Business - Beginner's Guide",
+      "meta_description": "Essential tips and strategies for aspiring entrepreneurs looking to start their own technology business.",
+      "meta_keywords": "Business, Entrepreneurship, Startup, Tech Business",
+      "category": "Business",
+      "slug": "starting-your-own-tech-business-a-beginners-guide",
+      "tags": ["Tips", "Beginner"],
+      "publishedAt": "2024-02-15T10:00:00.000Z",
+      "blocks": [
+        {
+          "__component": "plugin::webbyblog.text-block",
+          "content": "Starting a tech business can be both exciting and challenging. This guide will walk you through the essential steps to get started."
+        },
+        {
+          "__component": "plugin::webbyblog.image-block",
+          "image": null,
+          "caption": "Starting Your Own Tech Business Overview",
+          "alt_text": "Starting a tech business diagram showing validating your idea, building an MVP, finding customers, and scaling your business"
+        },
+        {
+          "__component": "plugin::webbyblog.text-block",
+          "content": "We'll cover topics like validating your idea, building an MVP, finding customers, and scaling your business.Whether you're a developer with a great idea or an entrepreneur looking to enter the tech space, this guide has something for you."
+        }
+      ]
+    },
+    {
+      "title": "Productivity Tips for Remote Developers",
+      "excerpt": "Learn how to stay productive and maintain work-life balance as a remote developer with these practical tips.",
+      "content": "Remote work has become the norm for many developers. While it offers flexibility, it also comes with unique challenges.In this article, we'll share practical tips for staying productive, managing your time, and maintaining a healthy work-life balance.From setting up your workspace to managing distractions, we'll cover everything you need to thrive as a remote developer.",
+      "meta_title": "Productivity Tips for Remote Developers",
+      "meta_description": "Learn how to stay productive and maintain work-life balance as a remote developer with these practical tips.",
+      "meta_keywords": "Productivity, Remote Work, Work-Life Balance, Tips",
+      "category": "Lifestyle",
+      "slug": "productivity-tips-for-remote-developers",
+      "tags": ["Tips"],
+      "publishedAt": "2024-02-20T10:00:00.000Z",
+      "blocks": [
+        {
+          "__component": "plugin::webbyblog.text-block",
+          "content": "Remote work has become the norm for many developers. While it offers flexibility, it also comes with unique challenges."
+        },
+        {
+          "__component": "plugin::webbyblog.image-block",
+          "image": null,
+          "caption": "Productivity Tips for Remote Developers Overview",
+          "alt_text": "Remote work diagram showing staying productive, managing your time, and maintaining a healthy work-life balance"
+        },
+        {
+          "__component": "plugin::webbyblog.text-block",
+          "content": "In this article, we'll share practical tips for staying productive, managing your time, and maintaining a healthy work-life balance.From setting up your workspace to managing distractions, we'll cover everything you need to thrive as a remote developer."
+        }
+      ]
+    }
+  ]
+}

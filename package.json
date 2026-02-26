@@ -1,0 +1,80 @@
+{
+  "name": "@webbycrown/webbyblog",
+  "version": "1.0.0",
+  "keywords": [
+    "strapi",
+    "plugin",
+    "blog",
+    "cms",
+    "content-management",
+    "posts",
+    "articles"
+  ],
+  "type": "commonjs",
+  "exports": {
+    ".": "./strapi-server.js",
+    "./package.json": "./package.json",
+    "./strapi-admin": {
+      "source": "./admin/src/index.js",
+      "import": "./dist/admin/index.mjs",
+      "require": "./dist/admin/index.js",
+      "default": "./dist/admin/index.js"
+    },
+    "./strapi-server": "./dist/server/index.js"
+  },
+  "files": [
+    "dist",
+    "strapi-server.js",
+    "scripts",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "npm run build:admin && npm run build:server && npm run build:copy-data",
+    "build:admin": "strapi-plugin build",
+    "build:server": "esbuild server/src/index.js --bundle --platform=node --format=cjs --outfile=dist/server/index.js --external:@strapi/*",
+    "build:copy-data": "node scripts/copy-data.js",
+    "watch": "strapi-plugin watch",
+    "watch:link": "strapi-plugin watch:link",
+    "verify": "strapi-plugin verify",
+    "postinstall": "node scripts/postinstall.js"
+  },
+  "dependencies": {
+    "@strapi/design-system": "^2.0.0-rc.21",
+    "@strapi/icons": "^2.0.0-rc.23",
+    "react-intl": "^7.1.11"
+  },
+  "devDependencies": {
+    "@strapi/sdk-plugin": "^5.3.2",
+    "@strapi/strapi": ">=4.0.0",
+    "esbuild": "^0.27.2",
+    "prettier": "^3.5.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "styled-components": "^6.1.17"
+  },
+  "peerDependencies": {
+    "@strapi/sdk-plugin": ">=4.0.0 || ^5.0.0",
+    "@strapi/strapi": ">=4.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "styled-components": "^6.1.17"
+  },
+  "strapi": {
+    "kind": "plugin",
+    "name": "webbyblog",
+    "displayName": "WebbyBlog",
+    "description": "Complete blog solution for Strapi: posts, categories, tags, and more with role-based permissions."
+  },
+  "description": "Complete blog solution for Strapi: posts, categories, tags, and more with role-based permissions.",
+  "license": "MIT",
+  "author": {
+    "name": "WebbyCrown",
+    "email": "info@webbycrown.com",
+    "url": "https://webbycrown.com"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+}
