@@ -10,7 +10,7 @@ node_modules/
 # Source folders (ignored on purpose)
 admin/
 server/
-scripts/
+# scripts/ is intentionally tracked because it contains build/postinstall/seed helpers
 
 # Build output: keep dist tracked even if parent .gitignore ignores it
 !dist/

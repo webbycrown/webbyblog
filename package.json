@@ -37,7 +37,7 @@
     "watch": "strapi-plugin watch",
     "watch:link": "strapi-plugin watch:link",
     "verify": "strapi-plugin verify",
-    "postinstall": "node scripts/postinstall.js"
+    "postinstall": "node -e \"const fs=require('fs'); const p='scripts/postinstall.js'; if(fs.existsSync(p)) require('./'+p); else console.log('WebbyBlog: postinstall script missing (scripts/postinstall.js), skipping.');\""
   },
   "dependencies": {
     "@strapi/design-system": "^2.0.0-rc.21",
