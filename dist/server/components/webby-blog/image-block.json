@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_webby-blog_image_block",
+  "info": {
+    "displayName": "Image Block",
+    "icon": "image",
+    "description": "Image block with optional caption"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "caption": {
+      "type": "text",
+      "required": false
+    },
+    "alt_text": {
+      "type": "string",
+      "required": false
+    }
+  }
+}

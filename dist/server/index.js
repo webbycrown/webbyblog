@@ -243,27 +243,19 @@ var require_register = __commonJS({
       ];
       for (const component of components) {
         try {
-          let componentPath;
+          const candidates = [
+            // Common case for both dev + dist (because dist build lives in dist/server)
+            path.join(__dirname, "components", "webby-blog", component.file),
+            // Some Strapi/plugin loaders may execute with a different __dirname; be flexible
+            path.join(__dirname, "..", "components", "webby-blog", component.file),
+            // Legacy source fallback (only if source is actually shipped)
+            path.join(__dirname, "..", "..", "server", "src", "components", "webby-blog", component.file)
+          ];
+          const componentPath = candidates.find((p) => fs.existsSync(p));
           if (!componentPath) {
-            const devPath = path.join(__dirname, "components", "webby-blog", component.file);
-            if (fs.existsSync(devPath)) {
-              componentPath = devPath;
-            } else if (__dirname.includes("dist")) {
-              const dirParts = __dirname.split(path.sep);
-              const webbyblogIndex = dirParts.indexOf("webbyblog");
-              if (webbyblogIndex !== -1) {
-                const pluginRoot = dirParts.slice(0, webbyblogIndex + 1).join(path.sep);
-                componentPath = path.join(pluginRoot, "server", "src", "components", "webby-blog", component.file);
-              } else {
-                const pluginRoot = path.resolve(__dirname, "..", "..", "..");
-                componentPath = path.join(pluginRoot, "server", "src", "components", "webby-blog", component.file);
-              }
-            } else {
-              componentPath = path.join(__dirname, "components", "webby-blog", component.file);
-            }
-          }
-          if (!fs.existsSync(componentPath)) {
-            strapi.log.warn(`[webbyblog] Component file not found at: ${componentPath}, skipping registration`);
+            strapi.log.warn(
+              `[webbyblog] Component file not found for ${component.name} (searched: ${candidates.join(" | ")}), skipping registration`
+            );
             continue;
           }
           const componentSchema = require(componentPath);
@@ -529,16 +521,13 @@ var require_bootstrap = __commonJS({
             } else {
               strapi.log.error(`[webbyblog] \u2717 ${uid}: MISSING displayName!`);
               try {
-                let componentPath = path.join(__dirname, "components", "webby-blog", `${componentName}.json`);
-                if (!fs.existsSync(componentPath) && __dirname.includes("dist")) {
-                  const dirParts = __dirname.split(path.sep);
-                  const webbyblogIndex = dirParts.indexOf("webbyblog");
-                  if (webbyblogIndex !== -1) {
-                    const pluginRoot = dirParts.slice(0, webbyblogIndex + 1).join(path.sep);
-                    componentPath = path.join(pluginRoot, "server", "src", "components", "webby-blog", `${componentName}.json`);
-                  }
-                }
-                if (fs.existsSync(componentPath)) {
+                const candidates = [
+                  path.join(__dirname, "components", "webby-blog", `${componentName}.json`),
+                  path.join(__dirname, "..", "components", "webby-blog", `${componentName}.json`),
+                  path.join(__dirname, "..", "..", "server", "src", "components", "webby-blog", `${componentName}.json`)
+                ];
+                const componentPath = candidates.find((p) => fs.existsSync(p));
+                if (componentPath) {
                   delete require.cache[require.resolve(componentPath)];
                   const componentSchema = JSON.parse(fs.readFileSync(componentPath, "utf8"));
                   const updatedComponent = {
@@ -562,16 +551,13 @@ var require_bootstrap = __commonJS({
           } else {
             strapi.log.error(`[webbyblog] \u2717 ${uid}: Component not found in registry! Attempting to register...`);
             try {
-              let componentPath = path.join(__dirname, "components", "webby-blog", `${componentName}.json`);
-              if (!fs.existsSync(componentPath) && __dirname.includes("dist")) {
-                const dirParts = __dirname.split(path.sep);
-                const webbyblogIndex = dirParts.indexOf("webbyblog");
-                if (webbyblogIndex !== -1) {
-                  const pluginRoot = dirParts.slice(0, webbyblogIndex + 1).join(path.sep);
-                  componentPath = path.join(pluginRoot, "server", "src", "components", "webby-blog", `${componentName}.json`);
-                }
-              }
-              if (fs.existsSync(componentPath)) {
+              const candidates = [
+                path.join(__dirname, "components", "webby-blog", `${componentName}.json`),
+                path.join(__dirname, "..", "components", "webby-blog", `${componentName}.json`),
+                path.join(__dirname, "..", "..", "server", "src", "components", "webby-blog", `${componentName}.json`)
+              ];
+              const componentPath = candidates.find((p) => fs.existsSync(p));
+              if (componentPath) {
                 const componentSchema = JSON.parse(fs.readFileSync(componentPath, "utf8"));
                 const globalId = `ComponentPluginWebbyblog${componentName.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join("")}`;
                 const componentData = {

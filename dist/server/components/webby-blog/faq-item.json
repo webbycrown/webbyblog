@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_webby-blog_faq_item",
+  "info": {
+    "displayName": "FAQ Item",
+    "icon": "question-circle",
+    "description": "Single FAQ item with question and answer"
+  },
+  "options": {},
+  "attributes": {
+    "question": {
+      "type": "string",
+      "required": true,
+      "description": "The FAQ question"
+    },
+    "answer": {
+      "type": "richtext",
+      "required": true,
+      "description": "The FAQ answer"
+    },
+    "is_expanded": {
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "description": "Whether this FAQ item should be expanded by default"
+    }
+  }
+}

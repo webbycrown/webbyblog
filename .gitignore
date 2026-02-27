@@ -40,6 +40,9 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# npm pack artifacts
+*.tgz
+
 # Editors / OS
 .DS_Store
 Thumbs.db

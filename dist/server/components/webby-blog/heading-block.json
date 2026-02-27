@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_webby-blog_heading_block",
+  "info": {
+    "displayName": "Heading Block",
+    "icon": "heading",
+    "description": "Heading block with different sizes"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "level": {
+      "type": "enumeration",
+      "enum": ["h1", "h2", "h3", "h4", "h5", "h6"],
+      "default": "h2",
+      "required": false
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_webby-blog_faq_block",
+  "info": {
+    "displayName": "FAQ Block",
+    "icon": "question",
+    "description": "Frequently Asked Questions block with title, description, button, and question-answer pairs"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false,
+      "description": "Title for the FAQ section"
+    },
+    "description": {
+      "type": "text",
+      "required": false,
+      "description": "Description or introduction text for the FAQ section"
+    },
+    "button_text": {
+      "type": "string",
+      "required": false,
+      "description": "Text for the call-to-action button"
+    },
+    "button_url": {
+      "type": "string",
+      "required": false,
+      "description": "URL for the button link"
+    },
+    "faqs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "webby-blog.faq-item",
+      "required": false,
+      "description": "List of FAQ items"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_webby-blog_cta_block",
+  "info": {
+    "displayName": "Call to Action Block",
+    "icon": "hand-pointer",
+    "description": "Call to action button block"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": false
+    },
+    "button_text": {
+      "type": "string",
+      "required": true
+    },
+    "button_url": {
+      "type": "string",
+      "required": true
+    },
+    "button_style": {
+      "type": "enumeration",
+      "enum": ["primary", "secondary", "outline"],
+      "default": "primary",
+      "required": false
+    }
+  }
+}

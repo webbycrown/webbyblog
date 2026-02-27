@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_webby-blog_code_block",
+  "info": {
+    "displayName": "Code Block",
+    "icon": "code",
+    "description": "Code snippet block with syntax highlighting"
+  },
+  "options": {},
+  "attributes": {
+    "code": {
+      "type": "text",
+      "required": true
+    },
+    "language": {
+      "type": "string",
+      "required": false,
+      "default": "javascript"
+    },
+    "filename": {
+      "type": "string",
+      "required": false
+    }
+  }
+}

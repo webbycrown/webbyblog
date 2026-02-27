@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_webby-blog_gallery_block",
+  "info": {
+    "displayName": "Gallery Block",
+    "icon": "images",
+    "description": "Image gallery block"
+  },
+  "options": {},
+  "attributes": {
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "caption": {
+      "type": "text",
+      "required": false
+    }
+  }
+}

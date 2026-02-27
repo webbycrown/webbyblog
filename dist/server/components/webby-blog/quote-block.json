@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_webby-blog_quote_block",
+  "info": {
+    "displayName": "Quote Block",
+    "icon": "quote",
+    "description": "Quote or testimonial block"
+  },
+  "options": {},
+  "attributes": {
+    "quote": {
+      "type": "text",
+      "required": true
+    },
+    "author": {
+      "type": "string",
+      "required": false
+    },
+    "author_title": {
+      "type": "string",
+      "required": false
+    }
+  }
+}

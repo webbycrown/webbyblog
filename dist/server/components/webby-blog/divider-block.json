@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_webby-blog_divider_block",
+  "info": {
+    "displayName": "Divider Block",
+    "icon": "minus",
+    "description": "Visual divider/separator block"
+  },
+  "options": {},
+  "attributes": {
+    "style": {
+      "type": "enumeration",
+      "enum": ["solid", "dashed", "dotted"],
+      "default": "solid",
+      "required": false
+    }
+  }
+}

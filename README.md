@@ -13,6 +13,26 @@ This plugin is designed to be a **drop-in blog backend layer** for Strapi:
 
 ## 📦 Installation
 
+### Install from npm (recommended)
+
+Install the plugin package:
+
+```bash
+npm i @webbycrown/webbyblog
+```
+
+Enable it in Strapi:
+
+```javascript
+// config/plugins.js
+module.exports = ({ env }) => ({
+  'webbyblog': {
+    enabled: true,
+    resolve: '@webbycrown/webbyblog',
+  },
+});
+```
+
 ### Local Development
 
 If you're developing locally, you can enable it from the local path:
