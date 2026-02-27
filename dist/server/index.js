@@ -2855,7 +2855,25 @@ var require_seed_data = __commonJS({
         const tmpPath = path.join(os.tmpdir(), `${randomUUID()}-${SEED_PLACEHOLDER_IMAGE_NAME}`);
         try {
           fs.writeFileSync(tmpPath, buffer);
-          const uploaded = await uploadService.upload({
+          const fileSize = (() => {
+            try {
+              return fs.statSync(tmpPath).size;
+            } catch {
+              return buffer.length;
+            }
+          })();
+          const filesPayload = {
+            path: tmpPath,
+            filepath: tmpPath,
+            tmpPath,
+            name: SEED_PLACEHOLDER_IMAGE_NAME,
+            originalFilename: SEED_PLACEHOLDER_IMAGE_NAME,
+            filename: SEED_PLACEHOLDER_IMAGE_NAME,
+            type: "image/png",
+            mimetype: "image/png",
+            size: fileSize
+          };
+          const doUpload = async () => uploadService.upload({
             data: {
               fileInfo: {
                 name: SEED_PLACEHOLDER_IMAGE_NAME,
@@ -2863,15 +2881,17 @@ var require_seed_data = __commonJS({
                 caption: "Seed placeholder image"
               }
             },
-            files: [
-              {
-                filepath: tmpPath,
-                originalFilename: SEED_PLACEHOLDER_IMAGE_NAME,
-                mimetype: "image/png",
-                size: buffer.length
-              }
-            ]
+            files: filesPayload
           });
+          let uploaded;
+          try {
+            uploaded = await doUpload();
+          } catch (e) {
+            const msg = e?.message || String(e);
+            strapi.log.warn(`[webbyblog] Placeholder image upload failed (will retry once): ${msg}`);
+            await new Promise((r) => setTimeout(r, 250));
+            uploaded = await doUpload();
+          }
           const uploadedFile = Array.isArray(uploaded) ? uploaded[0] : uploaded;
           if (!uploadedFile?.id) {
             strapi.log.warn(`[webbyblog] Placeholder upload did not return an id: ${safeStringify(uploadedFile)}`);
