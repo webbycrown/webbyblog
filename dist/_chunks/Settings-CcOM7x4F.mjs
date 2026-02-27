@@ -1,8 +1,8 @@
 import { jsx, jsxs } from "react/jsx-runtime";
 import { useState, useMemo, useEffect } from "react";
 import { useIntl } from "react-intl";
-import { Box, Typography, Alert, Table, Thead, Tr, Th, Tbody, Td, Flex, Button, Pagination, PreviousLink, NextLink, Modal, PageLink, Dots, DesignSystemProvider, Main } from "@strapi/design-system";
-import { P as PLUGIN_ID } from "./index-qFKS-mKQ.mjs";
+import { Box, Typography, Alert, Table, Thead, Tr, Th, Tbody, Td, Flex, Button, Pagination, PreviousLink, NextLink, Modal, PageLink, Dots, Main } from "@strapi/design-system";
+import { P as PLUGIN_ID } from "./index-ZVDjkal2.mjs";
 const CodeBlock = ({ children }) => /* @__PURE__ */ jsx(Box, { background: "neutral100", padding: 4, hasRadius: true, borderColor: "neutral200", borderWidth: "1px", children: /* @__PURE__ */ jsx(Typography, { as: "pre", fontFamily: "monospace", style: { margin: 0, whiteSpace: "pre-wrap" }, children }) });
 const ConfigureContent = () => {
   const { formatMessage } = useIntl();
@@ -246,7 +246,7 @@ const Settings = () => {
   const { formatMessage } = useIntl();
   const [activeView, setActiveView] = useState("configure");
   const titleId = `${PLUGIN_ID}-settings-title`;
-  return /* @__PURE__ */ jsx(DesignSystemProvider, { children: /* @__PURE__ */ jsx(Main, { labelledBy: titleId, children: /* @__PURE__ */ jsxs(Box, { padding: 8, background: "neutral100", children: [
+  return /* @__PURE__ */ jsx(Main, { labelledBy: titleId, children: /* @__PURE__ */ jsxs(Box, { padding: 8, background: "neutral100", children: [
     /* @__PURE__ */ jsx(Box, { paddingBottom: 4, children: /* @__PURE__ */ jsx(Typography, { id: titleId, variant: "alpha", as: "h1", children: formatMessage({
       id: `${PLUGIN_ID}.settings.section`,
       defaultMessage: "WebbyBlog"
@@ -265,7 +265,7 @@ const Settings = () => {
       ) }),
       activeView === "configure" && /* @__PURE__ */ jsx(ConfigureContent, {})
     ] })
-  ] }) }) });
+  ] }) });
 };
 export {
   Settings as default

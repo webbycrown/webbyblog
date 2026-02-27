@@ -4,7 +4,7 @@ const jsxRuntime = require("react/jsx-runtime");
 const react = require("react");
 const reactIntl = require("react-intl");
 const designSystem = require("@strapi/design-system");
-const index = require("./index-BdTIgi-L.js");
+const index = require("./index-Du51rxfB.js");
 const CodeBlock = ({ children }) => /* @__PURE__ */ jsxRuntime.jsx(designSystem.Box, { background: "neutral100", padding: 4, hasRadius: true, borderColor: "neutral200", borderWidth: "1px", children: /* @__PURE__ */ jsxRuntime.jsx(designSystem.Typography, { as: "pre", fontFamily: "monospace", style: { margin: 0, whiteSpace: "pre-wrap" }, children }) });
 const ConfigureContent = () => {
   const { formatMessage } = reactIntl.useIntl();
@@ -248,7 +248,7 @@ const Settings = () => {
   const { formatMessage } = reactIntl.useIntl();
   const [activeView, setActiveView] = react.useState("configure");
   const titleId = `${index.PLUGIN_ID}-settings-title`;
-  return /* @__PURE__ */ jsxRuntime.jsx(designSystem.DesignSystemProvider, { children: /* @__PURE__ */ jsxRuntime.jsx(designSystem.Main, { labelledBy: titleId, children: /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Box, { padding: 8, background: "neutral100", children: [
+  return /* @__PURE__ */ jsxRuntime.jsx(designSystem.Main, { labelledBy: titleId, children: /* @__PURE__ */ jsxRuntime.jsxs(designSystem.Box, { padding: 8, background: "neutral100", children: [
     /* @__PURE__ */ jsxRuntime.jsx(designSystem.Box, { paddingBottom: 4, children: /* @__PURE__ */ jsxRuntime.jsx(designSystem.Typography, { id: titleId, variant: "alpha", as: "h1", children: formatMessage({
       id: `${index.PLUGIN_ID}.settings.section`,
       defaultMessage: "WebbyBlog"
@@ -267,6 +267,6 @@ const Settings = () => {
       ) }),
       activeView === "configure" && /* @__PURE__ */ jsxRuntime.jsx(ConfigureContent, {})
     ] })
-  ] }) }) });
+  ] }) });
 };
 exports.default = Settings;

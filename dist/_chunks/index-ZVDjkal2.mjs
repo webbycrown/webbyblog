@@ -1,5 +1,4 @@
-"use strict";
-const react = require("react");
+import { useRef, useEffect } from "react";
 const __variableDynamicImportRuntimeHelper = (glob, path, segs) => {
   const v = glob[path];
   if (v) {
@@ -37,8 +36,8 @@ const provideCheckUserHasPermissions = () => {
 };
 provideCheckUserHasPermissions();
 const Initializer = () => {
-  const hasInitialized = react.useRef(false);
-  react.useEffect(() => {
+  const hasInitialized = useRef(false);
+  useEffect(() => {
     if (!hasInitialized.current) {
       hasInitialized.current = true;
       provideCheckUserHasPermissions();
@@ -90,7 +89,7 @@ const index = {
           },
           id: "configure",
           to: `${PLUGIN_ID}`,
-          Component: () => Promise.resolve().then(() => require("./Settings-3DKBWEfm.js")),
+          Component: () => import("./Settings-CcOM7x4F.mjs"),
           permissions: []
         }
       ]
@@ -106,14 +105,14 @@ const index = {
       locales.map(async (locale) => {
         if (locale === "en") {
           try {
-            const { default: data } = await Promise.resolve().then(() => require("./en-C1kbFGU-.js"));
+            const { default: data } = await import("./en--qvCC55e.mjs");
             return { data, locale };
           } catch {
             return { data: {}, locale };
           }
         }
         try {
-          const { default: data } = await __variableDynamicImportRuntimeHelper(/* @__PURE__ */ Object.assign({ "./translations/en.json": () => Promise.resolve().then(() => require("./en-C1kbFGU-.js")) }), `./translations/${locale}.json`, 3);
+          const { default: data } = await __variableDynamicImportRuntimeHelper(/* @__PURE__ */ Object.assign({ "./translations/en.json": () => import("./en--qvCC55e.mjs") }), `./translations/${locale}.json`, 3);
           return { data, locale };
         } catch {
           return { data: {}, locale };
@@ -122,5 +121,7 @@ const index = {
     );
   }
 };
-exports.PLUGIN_ID = PLUGIN_ID;
-exports.index = index;
+export {
+  PLUGIN_ID as P,
+  index as i
+};
