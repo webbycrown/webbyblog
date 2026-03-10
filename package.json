@@ -1,6 +1,6 @@
 {
   "name": "@webbycrown/webbyblog",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "keywords": [
     "strapi",
     "plugin",
@@ -76,7 +76,7 @@
     "url": "https://webbycrown.com"
   },
   "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=8.0.0"
+   "node": ">=20.0.0",
+   "npm": ">=8.0.0"
   }
 }

@@ -2862,35 +2862,59 @@ var require_seed_data = __commonJS({
               return buffer.length;
             }
           })();
-          const filesPayload = {
-            path: tmpPath,
-            filepath: tmpPath,
-            tmpPath,
+          const fileInfo = {
             name: SEED_PLACEHOLDER_IMAGE_NAME,
-            originalFilename: SEED_PLACEHOLDER_IMAGE_NAME,
-            filename: SEED_PLACEHOLDER_IMAGE_NAME,
-            type: "image/png",
-            mimetype: "image/png",
-            size: fileSize
+            alternativeText: "Seed placeholder image",
+            caption: "Seed placeholder image"
           };
-          const doUpload = async () => uploadService.upload({
-            data: {
-              fileInfo: {
-                name: SEED_PLACEHOLDER_IMAGE_NAME,
-                alternativeText: "Seed placeholder image",
-                caption: "Seed placeholder image"
+          const createFilesPayload = (includeStream = true) => {
+            const payload = {
+              path: tmpPath,
+              filepath: tmpPath,
+              tmpPath,
+              name: SEED_PLACEHOLDER_IMAGE_NAME,
+              originalFilename: SEED_PLACEHOLDER_IMAGE_NAME,
+              filename: SEED_PLACEHOLDER_IMAGE_NAME,
+              type: "image/png",
+              mimetype: "image/png",
+              size: fileSize,
+              mtime: /* @__PURE__ */ new Date()
+            };
+            if (includeStream) {
+              payload.stream = fs.createReadStream(tmpPath);
+            }
+            return payload;
+          };
+          const doUpload = async (useStream = true) => {
+            const filesPayload = createFilesPayload(useStream);
+            try {
+              return await uploadService.upload({
+                data: { fileInfo },
+                files: [filesPayload]
+              });
+            } catch (e) {
+              if (useStream) {
+                const filesPayloadNoStream = createFilesPayload(false);
+                return await uploadService.upload({
+                  data: { fileInfo },
+                  files: [filesPayloadNoStream]
+                });
               }
-            },
-            files: filesPayload
-          });
+              throw e;
+            }
+          };
           let uploaded;
           try {
-            uploaded = await doUpload();
+            uploaded = await doUpload(true);
           } catch (e) {
             const msg = e?.message || String(e);
             strapi.log.warn(`[webbyblog] Placeholder image upload failed (will retry once): ${msg}`);
             await new Promise((r) => setTimeout(r, 250));
-            uploaded = await doUpload();
+            try {
+              uploaded = await doUpload(false);
+            } catch (e2) {
+              uploaded = await doUpload(true);
+            }
           }
           const uploadedFile = Array.isArray(uploaded) ? uploaded[0] : uploaded;
           if (!uploadedFile?.id) {
@@ -2901,7 +2925,11 @@ var require_seed_data = __commonJS({
           strapi.log.info(`[webbyblog] \u2713 Uploaded placeholder image (id=${_placeholderImageId}) for seed image-blocks`);
           return _placeholderImageId;
         } catch (e) {
-          strapi.log.error(`[webbyblog] Failed to upload placeholder image: ${e?.message || e}`);
+          const errorDetails = e?.message || e?.toString() || String(e);
+          strapi.log.error(`[webbyblog] Failed to upload placeholder image: ${errorDetails}`);
+          if (e?.stack) {
+            strapi.log.debug(`[webbyblog] Upload error stack: ${e.stack}`);
+          }
           return null;
         } finally {
           try {
