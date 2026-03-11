@@ -2855,52 +2855,68 @@ var require_seed_data = __commonJS({
         const tmpPath = path.join(os.tmpdir(), `${randomUUID()}-${SEED_PLACEHOLDER_IMAGE_NAME}`);
         try {
           fs.writeFileSync(tmpPath, buffer);
-          const fileSize = (() => {
-            try {
-              return fs.statSync(tmpPath).size;
-            } catch {
-              return buffer.length;
-            }
-          })();
+          const fileSize = buffer.length;
           const fileInfo = {
             name: SEED_PLACEHOLDER_IMAGE_NAME,
             alternativeText: "Seed placeholder image",
             caption: "Seed placeholder image"
           };
-          const createFilesPayload = (includeStream = true) => {
-            const payload = {
-              path: tmpPath,
-              filepath: tmpPath,
-              tmpPath,
+          const createFilesPayload = (useBuffer = true) => {
+            const fileObj = {
               name: SEED_PLACEHOLDER_IMAGE_NAME,
+              originalName: SEED_PLACEHOLDER_IMAGE_NAME,
               originalFilename: SEED_PLACEHOLDER_IMAGE_NAME,
               filename: SEED_PLACEHOLDER_IMAGE_NAME,
-              type: "image/png",
-              mimetype: "image/png",
               size: fileSize,
-              mtime: /* @__PURE__ */ new Date()
+              type: "image/png",
+              mime: "image/png",
+              mimetype: "image/png"
             };
-            if (includeStream) {
-              payload.stream = fs.createReadStream(tmpPath);
+            if (useBuffer) {
+              fileObj.buffer = buffer;
+            } else {
+              fileObj.path = tmpPath;
+              fileObj.filepath = tmpPath;
+              fileObj.tmpPath = tmpPath;
+              fileObj.stream = fs.createReadStream(tmpPath);
+              fileObj.mtime = /* @__PURE__ */ new Date();
             }
-            return payload;
+            return fileObj;
           };
-          const doUpload = async (useStream = true) => {
-            const filesPayload = createFilesPayload(useStream);
+          const doUpload = async (useBuffer = true) => {
+            const filesPayload = createFilesPayload(useBuffer);
             try {
               return await uploadService.upload({
                 data: { fileInfo },
                 files: [filesPayload]
               });
-            } catch (e) {
-              if (useStream) {
-                const filesPayloadNoStream = createFilesPayload(false);
+            } catch (e1) {
+              try {
                 return await uploadService.upload({
-                  data: { fileInfo },
-                  files: [filesPayloadNoStream]
+                  data: fileInfo,
+                  files: [filesPayload]
                 });
+              } catch (e2) {
+                try {
+                  return await uploadService.upload({
+                    data: { fileInfo },
+                    files: filesPayload
+                  });
+                } catch (e3) {
+                  if (useBuffer) {
+                    const streamPayload = createFilesPayload(false);
+                    try {
+                      return await uploadService.upload({
+                        data: { fileInfo },
+                        files: [streamPayload]
+                      });
+                    } catch (e4) {
+                      throw e1;
+                    }
+                  }
+                  throw e1;
+                }
               }
-              throw e;
             }
           };
           let uploaded;
@@ -2909,11 +2925,16 @@ var require_seed_data = __commonJS({
           } catch (e) {
             const msg = e?.message || String(e);
             strapi.log.warn(`[webbyblog] Placeholder image upload failed (will retry once): ${msg}`);
-            await new Promise((r) => setTimeout(r, 250));
+            await new Promise((r) => setTimeout(r, 500));
             try {
               uploaded = await doUpload(false);
             } catch (e2) {
-              uploaded = await doUpload(true);
+              try {
+                uploaded = await doUpload(true);
+              } catch (e3) {
+                strapi.log.error(`[webbyblog] Failed to upload placeholder image after retries: ${e3?.message || e3}`);
+                throw e3;
+              }
             }
           }
           const uploadedFile = Array.isArray(uploaded) ? uploaded[0] : uploaded;
@@ -2925,11 +2946,7 @@ var require_seed_data = __commonJS({
           strapi.log.info(`[webbyblog] \u2713 Uploaded placeholder image (id=${_placeholderImageId}) for seed image-blocks`);
           return _placeholderImageId;
         } catch (e) {
-          const errorDetails = e?.message || e?.toString() || String(e);
-          strapi.log.error(`[webbyblog] Failed to upload placeholder image: ${errorDetails}`);
-          if (e?.stack) {
-            strapi.log.debug(`[webbyblog] Upload error stack: ${e.stack}`);
-          }
+          strapi.log.error(`[webbyblog] Failed to upload placeholder image: ${e?.message || e}`);
           return null;
         } finally {
           try {

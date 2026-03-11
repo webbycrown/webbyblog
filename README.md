@@ -215,10 +215,7 @@ npm run watch
 ## 📌 Changelog
 
 ### 1.0.1
-
-- Fixed image upload issue in seed script for Strapi 5 compatibility
-- Improved file stream handling for placeholder image uploads
-- Added better error handling and retry logic for image uploads
+- 
 
 ### 1.0.0
 
