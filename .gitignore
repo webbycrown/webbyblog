@@ -1,26 +1,15 @@
-# -----------------------------
-# WebbyBlog plugin - dist-only repo
-# - DO NOT commit source folders (admin/, server/)
-# - DO commit built output (dist/)
-# -----------------------------
-
-# Dependencies
 node_modules/
+# WebbyBlog plugin - source-based
+# Keep local dev caches ignored, but DO track plugin source (admin/, server/).
 
-# Source folders (ignored on purpose)
-admin/
-server/
-# scripts/ is intentionally tracked because it contains build/postinstall/seed helpers
-
-# Build output: keep dist tracked even if parent .gitignore ignores it
-!dist/
-!dist/**
-
-# Tool caches / temp
-build/
+# Build output & caches
 .cache/
 .tmp/
 .turbo/
+build/
+dist/
+
+# Other tool caches / temp
 .eslintcache
 .strapi/
 
@@ -51,3 +40,4 @@ Desktop.ini
 .vscode/
 *.swp
 *~
+docs/

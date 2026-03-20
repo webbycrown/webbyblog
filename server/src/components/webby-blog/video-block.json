@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_webby-blog_video_block",
+  "info": {
+    "displayName": "Video Block",
+    "icon": "video",
+    "description": "Video embed block (YouTube, Vimeo, or uploaded video)"
+  },
+  "options": {},
+  "attributes": {
+    "video": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["videos"]
+    },
+    "embed_url": {
+      "type": "string",
+      "required": false
+    },
+    "caption": {
+      "type": "text",
+      "required": false
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_webby-blog_text_block",
+  "info": {
+    "displayName": "Text Block",
+    "icon": "file-alt",
+    "description": "Rich text content block for blog posts"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

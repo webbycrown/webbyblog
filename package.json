@@ -1,6 +1,11 @@
 {
   "name": "@webbycrown/webbyblog",
-  "version": "1.0.1",
+  "version": "2.0.0",
+  "homepage": "https://github.com/webbycrown/webbyblog",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/webbycrown/webbyblog.git"
+  },
   "keywords": [
     "strapi",
     "plugin",
@@ -12,23 +17,23 @@
   ],
   "type": "commonjs",
   "exports": {
-    ".": "./strapi-server.js",
+    ".": "./server/index.js",
     "./package.json": "./package.json",
     "./strapi-admin": {
-      "source": "./admin/src/index.js",
-      "import": "./dist/admin/index.mjs",
-      "require": "./dist/admin/index.js",
-      "default": "./dist/admin/index.js"
+      "source": "./admin/app.js"
     },
-    "./strapi-server": "./dist/server/index.js"
+    "./strapi-server": "./server/index.js"
   },
   "files": [
-    "dist",
-    "strapi-server.js",
+    "admin",
+    "server",
     "scripts",
     "README.md",
     "LICENSE"
   ],
+  "bin": {
+    "seed-blogdata": "./scripts/seed-blog.js"
+  },
   "scripts": {
     "build": "npm run build:admin && npm run build:server && npm run build:copy-data",
     "build:admin": "strapi-plugin build",
@@ -37,12 +42,13 @@
     "watch": "strapi-plugin watch",
     "watch:link": "strapi-plugin watch:link",
     "verify": "strapi-plugin verify",
+    "seed:blogdata": "node ./scripts/seed-blog.js",
     "postinstall": "node -e \"const fs=require('fs'); const p='scripts/postinstall.js'; if(fs.existsSync(p)) require('./'+p); else console.log('WebbyBlog: postinstall script missing (scripts/postinstall.js), skipping.');\""
   },
   "dependencies": {},
   "devDependencies": {
     "@strapi/sdk-plugin": "^5.3.2",
-    "@strapi/strapi": ">=4.0.0",
+    "@strapi/strapi": ">=5.0.0",
     "@strapi/design-system": "^2.0.0-rc.21",
     "@strapi/icons": "^2.0.0-rc.23",
     "esbuild": "^0.27.2",
@@ -54,7 +60,7 @@
   },
   "peerDependencies": {
     "@strapi/sdk-plugin": ">=4.0.0 || ^5.0.0",
-    "@strapi/strapi": ">=4.0.0",
+    "@strapi/strapi": "^5.0.0",
     "@strapi/design-system": ">=2.0.0-rc.0",
     "@strapi/icons": ">=2.0.0-rc.0",
     "react": "^18.3.1",

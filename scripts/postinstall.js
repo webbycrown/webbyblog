@@ -11,6 +11,8 @@ const { execSync } = require('child_process');
  * - Optionally prompts user to seed demo blog data right after installation
  */
 async function main() {
+  console.log('\n✅ WebbyBlog: plugin postinstall running...');
+
   // Find the Strapi project root (go up from node_modules/@webbycrown/webbyblog)
   // Prefer npm-provided hints for the host project root. This is critical when the plugin is
   // installed via "file:" and becomes a symlink; relying on __dirname / process.cwd() can point
@@ -75,7 +77,12 @@ async function main() {
 
   const packageJsonPath = path.join(projectRoot, 'package.json');
   if (!fs.existsSync(packageJsonPath)) {
-    console.log('\n⚠️  Could not find Strapi project root. Skipping blog data seeding.');
+    console.log('\nℹ️  WebbyBlog installed.');
+    console.log(
+      '\n👉 Run this from your Strapi project root to seed demo data:\n' +
+        '   npm run seed:blog -- --yes\n' +
+        '   (or: npx seed-blogdata -- --yes)\n'
+    );
     return;
   }
 
@@ -93,7 +100,9 @@ async function main() {
       Boolean(packageJson?.devDependencies?.['@strapi/strapi']);
 
     if (!hasStrapi) {
-      console.log('\n⚠️  This does not appear to be a Strapi project. Skipping blog data seeding.');
+      console.log('\nℹ️  WebbyBlog installed.');
+      console.log('\n⚠️  This does not appear to be a Strapi project, so demo data seeding was skipped.');
+      console.log('\n👉 To seed demo data, run from your Strapi project root:\n   npm run seed:blog -- --yes');
       return;
     }
 
@@ -180,6 +189,8 @@ async function main() {
   const seedRunnerPath = seedRunnerCandidates.find((p) => fs.existsSync(p)) || null;
   if (!seedRunnerPath) {
     console.log('\n⚠️  Seed runner not found. Skipping demo data seeding.');
+    console.log('\n👉 You can seed manually later from your Strapi project root:\n   npm run seed:blog -- --yes\n   (or: npx seed-blogdata -- --yes)');
+    
     return;
   }
 

@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_webby-blog_image_content_block",
+  "info": {
+    "displayName": "Image Content Block",
+    "icon": "layout",
+    "description": "Two-column block with image and content, with toggleable image position"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "richtext",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "button_text": {
+      "type": "string",
+      "required": false
+    },
+    "button_url": {
+      "type": "string",
+      "required": false
+    },
+    "image_position": {
+      "type": "enumeration",
+      "enum": ["left", "right", "top", "bottom"],
+      "default": "left",
+      "required": false,
+      "description": "Position of the image relative to content: left, right, top, or bottom"
+    }
+  }
+}

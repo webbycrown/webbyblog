@@ -1,0 +1,53 @@
+{
+  "collectionName": "components_webby-blog_images_slider_block",
+  "info": {
+    "displayName": "Images Slider Block",
+    "icon": "slideshow",
+    "description": "Image slider/carousel block with multiple images"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false,
+      "description": "Title for the slider section"
+    },
+    "description": {
+      "type": "text",
+      "required": false,
+      "description": "Description for the slider"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": ["images"],
+      "description": "Images for the slider"
+    },
+    "autoplay": {
+      "type": "boolean",
+      "default": false,
+      "required": false,
+      "description": "Enable automatic slide transition"
+    },
+    "show_arrows": {
+      "type": "boolean",
+      "default": true,
+      "required": false,
+      "description": "Show navigation arrows"
+    },
+    "show_dots": {
+      "type": "boolean",
+      "default": true,
+      "required": false,
+      "description": "Show dot indicators"
+    },
+    "slide_interval": {
+      "type": "integer",
+      "default": 3000,
+      "required": false,
+      "min": 1000,
+      "description": "Time in milliseconds between slides (if autoplay is enabled)"
+    }
+  }
+}

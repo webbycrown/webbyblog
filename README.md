@@ -11,6 +11,8 @@ This plugin is designed to be a **drop-in blog backend layer** for Strapi:
 - **Admin Configuration**: Manage all settings through the Strapi admin panel
 - **Production Ready**: Built with security, validation, and best practices in mind
 
+
+
 ## 📦 Installation
 
 ### Install from npm (recommended)
@@ -76,6 +78,15 @@ To seed your blog with demo data, you can use either:
 **Using npm script (recommended):**
 ```bash
 npm run seed:blog
+```
+
+### CLI (npx)
+
+If the plugin is installed in your Strapi app, you can seed using the package CLI:
+
+```bash
+npx seed-blogdata -- --help
+npx seed-blogdata -- --yes
 ```
 
 **Or directly with node:**
@@ -214,8 +225,12 @@ npm run watch
 
 ## 📌 Changelog
 
-### 1.0.1
-- 
+
+### 2.0.0 - Patch Release
+
+### Changed
+- [Strapi v5] Converted WebbyBlog to a source-based plugin structure (uses `admin/src` and `server/src` directly; removed dist-first packaging) for Strapi Marketplace compatibility.
+
 
 ### 1.0.0
 
