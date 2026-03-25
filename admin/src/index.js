@@ -1,5 +1,6 @@
 import { PLUGIN_ID } from './pluginId';
 import Initializer from './components/Initializer';
+import PluginIcon from './components/PluginIcon';
 
 // Fix for Strapi 5.x: Provide checkUserHasPermissions globally
 // This is a workaround for a known Strapi 5.x RBAC issue
@@ -25,27 +26,25 @@ export default {
       name: 'WebbyBlog',
     });
 
-    // Show plugin settings under Settings → Plugins in the left sidebar
-    app.createSettingSection(
+    // Show plugin settings under Settings -> Plugins in the left sidebar
+    app.addSettingsLink(
       {
-        id: PLUGIN_ID,
+        id: 'webbyblog',
         intlLabel: {
           id: `${PLUGIN_ID}.settings.section`,
           defaultMessage: 'WebbyBlog',
         },
+        icon: PluginIcon,
       },
-      [
-        {
-          intlLabel: {
-            id: `${PLUGIN_ID}.settings.configure.title`,
-            defaultMessage: 'Configure',
-          },
-          id: 'configure',
-          to: `${PLUGIN_ID}`,
-          Component: () => import('./pages/Settings'),
-          permissions: [],
+      {
+        id: `${PLUGIN_ID}.settings.configure`,
+        intlLabel: {
+          id: `${PLUGIN_ID}.settings.configure.title`,
+          defaultMessage: 'Configure',
         },
-      ]
+        to: `${PLUGIN_ID}`,
+        Component: () => import('./pages/Settings'),
+      }
     );
   },
 

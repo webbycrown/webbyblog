@@ -1,6 +1,6 @@
 {
   "name": "@webbycrown/webbyblog",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "homepage": "https://github.com/webbycrown/webbyblog",
   "repository": {
     "type": "git",
@@ -20,7 +20,9 @@
     ".": "./server/index.js",
     "./package.json": "./package.json",
     "./strapi-admin": {
-      "source": "./admin/app.js"
+      "source": "./admin/src/index.js",
+      "import": "./admin/src/index.js",
+      "default": "./admin/src/index.js"
     },
     "./strapi-server": "./server/index.js"
   },
@@ -82,7 +84,7 @@
     "url": "https://webbycrown.com"
   },
   "engines": {
-   "node": ">=20.0.0",
-   "npm": ">=8.0.0"
+    "node": ">=20.0.0",
+    "npm": ">=8.0.0"
   }
 }
