@@ -15,7 +15,9 @@ This plugin is designed to be a **drop-in blog backend layer** for Strapi:
 
 ### 📺 Watch & Learn the WebbyBlog Guide:
 
-👉 https://www.webbycrown.com/guides/webbyblog-plugin/webby-blog-get-started
+[![View WebbyBlog Guide](https://img.shields.io/badge/View%20WebbyBlog%20Guide-2563EB?style=for-the-badge)](https://www.webbycrown.com/guides/webbyblog-plugin/webby-blog-get-started)
+
+Direct link: https://www.webbycrown.com/guides/webbyblog-plugin/webby-blog-get-started
 
 ---
 
