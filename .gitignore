@@ -31,10 +31,10 @@ pnpm-debug.log*
 
 # npm pack artifacts
 *.tgz
-
+webbyblog.md
 # Editors / OS
 .DS_Store
-Thumbs.db
+Thumbs.db   
 Desktop.ini
 .idea/
 .vscode/

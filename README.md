@@ -11,6 +11,13 @@ This plugin is designed to be a **drop-in blog backend layer** for Strapi:
 - **Admin Configuration**: Manage all settings through the Strapi admin panel
 - **Production Ready**: Built with security, validation, and best practices in mind
 
+## 📘 User Guide
+
+### 📺 Watch & Learn the Editor Guide:
+
+👉 https://www.webbycrown.com/guides/webbyblog-plugin/webby-blog-get-started
+
+---
 
 
 ## 📦 Installation
