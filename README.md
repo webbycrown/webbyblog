@@ -13,7 +13,7 @@ This plugin is designed to be a **drop-in blog backend layer** for Strapi:
 
 ## 📘 User Guide
 
-### 📺 Watch & Learn the Editor Guide:
+### 📺 Watch & Learn the WebbyBlog Guide:
 
 👉 https://www.webbycrown.com/guides/webbyblog-plugin/webby-blog-get-started
 
