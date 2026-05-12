@@ -1,13 +1,15 @@
 {
   "name": "@webbycrown/webbyblog",
   "version": "2.0.1",
-  "homepage": "https://github.com/webbycrown/webbyblog",
+  "homepage": "https://www.webbycrown.com/guides/webbyblog-plugin-strapi-blog-guide",
   "repository": {
     "type": "git",
     "url": "https://github.com/webbycrown/webbyblog.git"
   },
   "keywords": [
     "strapi",
+    "strapi-market",
+    "strapi-marketplace",
     "plugin",
     "blog",
     "cms",

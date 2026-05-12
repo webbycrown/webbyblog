@@ -1,4 +1,8 @@
-# WebbyBlog Plugin
+# WebbyBlog
+
+[![npm version](https://img.shields.io/npm/v/@webbycrown/webbyblog)](https://www.npmjs.com/package/@webbycrown/webbyblog)
+[![Strapi Market](https://img.shields.io/badge/Strapi%20Market-plugin-4945ff)](https://market.strapi.io/plugins/@webbycrown-webbyblog)
+[![Strapi](https://img.shields.io/badge/Strapi-5.x-yellow.svg)](https://strapi.io/)
 
 A complete, production-ready blog solution for Strapi CMS. This plugin provides a comprehensive backend for managing blog functionality without requiring developers to manually create content types, routes, or controllers. Simply install, configure, and start publishing.
 
@@ -15,9 +19,9 @@ This plugin is designed to be a **drop-in blog backend layer** for Strapi:
 
 ### 📺 Watch & Learn the WebbyBlog Guide:
 
-[![View WebbyBlog Guide](https://img.shields.io/badge/View%20WebbyBlog%20Guide-2563EB?style=for-the-badge)](https://www.webbycrown.com/guides/webbyblog-plugin/webby-blog-get-started)
+[![View WebbyBlog Guide](https://img.shields.io/badge/View%20WebbyBlog%20Guide-2563EB?style=for-the-badge)](https://www.webbycrown.com/guides/webbyblog-plugin-strapi-blog-guide/)
 
-Direct link: https://www.webbycrown.com/guides/webbyblog-plugin/webby-blog-get-started
+Direct link: https://www.webbycrown.com/guides/webbyblog-plugin-strapi-blog-guide/
 
 ---
 
@@ -31,6 +35,8 @@ Install the plugin package:
 ```bash
 npm i @webbycrown/webbyblog
 ```
+
+The plugin is listed on **[Strapi Market](https://market.strapi.io/plugins/@webbycrown-webbyblog)** — open that page to read details and install from the marketplace UI when you prefer.
 
 Enable it in Strapi:
 
@@ -234,6 +240,14 @@ npm run watch
 
 ## 📌 Changelog
 
+### 2.0.1
+
+### Added
+- Plugin settings: **Overview** tab with a short summary before configuration.
+
+### Changed
+- **npm** package keywords for Strapi Market discovery (`strapi-market`, `strapi-marketplace`).
+- **README**: npm / Strapi Market / Strapi 5.x badges; explicit Strapi Market listing link in Installation.
 
 ### 2.0.0 - Patch Release
 
